@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agregar -Plataforma de musica</title>
+
+    <!-- CSS only -->
+    <link rel="shortcut icon" href="/img/logo3.png">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://kit.fontawesome.com/73097333a1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="col-md-6 mx-auto">
+        <form method="POST">
+
+            <lable class="titulo">Nuevo curso</lable>
+            <hr>
+            <div class="form-group row">
+                <label  class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Clave</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="clave" placeholder="Clave" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label  class="col-sm-2 col-form-label">Descripci&oacute;n</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="descripcion" rows="3" required></textarea>
+                </div>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <label class="col-sm-2">Imagen</label>
+                <input type="file" class="form-control-file" name="imagen" required>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-2">Checkbox</div>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="captcha">
+                        <label class="form-check-label" for="gridCheck1">No soy un Robot</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Alta curso</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</body>
+
+</html>

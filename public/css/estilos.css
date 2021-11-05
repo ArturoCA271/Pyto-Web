@@ -1,0 +1,11 @@
+.titulo{
+	text-align: center;
+	font-weight: bold;
+}
+
+.canvas{
+	height: 1000px;
+	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+}
