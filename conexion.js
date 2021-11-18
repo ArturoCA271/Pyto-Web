@@ -11,7 +11,7 @@ pool.getConnection((err, conexion) => {
 
         conexion.release();
         //pool.query('CREATE DATABASE IF NOT EXISTS pmusica; ');
-        pool.query('USE pmusica;');
+        pool.query('USE baluxvwixylw17lpuboq;');
 
         pool.query(
             'CREATE TABLE IF NOT EXISTS proveedores( ' +
@@ -35,6 +35,7 @@ pool.getConnection((err, conexion) => {
             'clave VARCHAR(50),' +
             'descripcion VARCHAR(450) NOT NULL,' +
             'nombre_imagen VARCHAR(430) NOT NULL, ' +
+            'tipo_musica CHAR(1) NOT NULL, ' +
             'FOREIGN KEY(proveedor_id) REFERENCES proveedores(proveedor_id)' +
             ');'
         );

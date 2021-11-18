@@ -4,6 +4,7 @@ const morgan = require('morgan');
 var cors = require('cors');
 const { join } = require('path');
 const path = require('path');
+const session = require('express-session');
 
 const port = 3000;
 app = express();
@@ -23,6 +24,8 @@ app.set('views', path.join(__dirname, '/vistas'));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+//control de sesiones
 
 
 

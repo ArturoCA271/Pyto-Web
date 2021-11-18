@@ -1,9 +1,9 @@
 module.exports = {
     database: {
-        host: 'localhost',
-        user: 'root',
-        password: '12345',
-        database: 'pmusica',
+        host: 'baluxvwixylw17lpuboq-mysql.services.clever-cloud.com',
+        user: 'utebitq7dpwozqys',
+        password: '5gQuZhIC66FlH3L3sud3',
+        database: 'baluxvwixylw17lpuboq',
         insecureAuth: true
     }
 }
