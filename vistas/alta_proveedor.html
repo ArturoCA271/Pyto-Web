@@ -117,8 +117,8 @@
 
                 console.log(arreglo_tipo_elementos);
 
-                if (!(arreglo_tipo_elementos.indexOf('M') >= 0) && !(arreglo_tipo_elementos.indexOf('I') >= 0) &&
-                    !(arreglo_tipo_elementos.indexOf('N') >= 0)) {
+                if ((arreglo_tipo_elementos.indexOf('M') < 0) || (arreglo_tipo_elementos.indexOf('I') < 0) ||
+                    (arreglo_tipo_elementos.indexOf('N') < 0)) {
                     alert('La contraseña porporcionada no cuenta con mayusculas, minusculas y numeros');
                     return false;
                 }

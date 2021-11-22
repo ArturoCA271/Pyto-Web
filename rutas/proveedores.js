@@ -2,11 +2,14 @@ const cons = require('consolidate');
 const express = require('express');
 const router = express.Router();
 const pool = require('../conexion');
+const crea_ruta = require('./crea_carpeta');
+
 
 
 router.get('/proveedores', (req, res) => {
     res.render('alta_proveedor.html');
 });
+
 
 router.post('/proveedores', async(req, res) => {
     const {
@@ -31,12 +34,13 @@ router.post('/proveedores', async(req, res) => {
     }
     await pool.query('INSERT INTO proveedores set ?', [newProveedor]);
     console.log(req.body);
-
+    crea_ruta(usuario);
 
     res.redirect('/eresUsuario');
     //res.redirect('/agregar_cursos');
 
 });
+
 
 
 module.exports = router;

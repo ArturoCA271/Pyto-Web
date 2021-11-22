@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('../conexion');
 const router = express.Router();
+const crea_ruta = require('./crea_carpeta');
+const { join } = require('path');
+const path = require('path');
 
 
 router.get('/agregar_cursos', (req, res) => {
@@ -36,6 +39,12 @@ router.post('/agregar_cursos', async(req, res) => {
     console.log(newCurso);
 
     await pool.query('INSERT INTO cursos set ?', [newCurso]);
+    let usuario = req.session.user;
+    let newroute = path.join(usuario, '/', nombre);
+    console.log(newroute);
+    crea_ruta(newroute);
+
+
     res.redirect('/agregar_cursos');
 
 });
