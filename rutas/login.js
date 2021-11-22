@@ -20,7 +20,7 @@ router.post('/login', async(req, res) => {
 
     if (id_proveedor !== undefined && !isNaN(id_proveedor)) {
         req.session.id_proveedor = id_proveedor;
-        res.redirect('/agregar_cursos');
+        res.redirect('/agregar_cursos/' + usuario);
     } else
         res.redirect('/login');
 

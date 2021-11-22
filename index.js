@@ -8,6 +8,7 @@ const session = require('express-session');
 cookieParser = require('cookie-parser');
 
 
+
 const port = 3000;
 app = express();
 
@@ -55,6 +56,8 @@ app.use('/', require('./rutas/curso_viento')); //inforación de cursos
 app.use('/', require('./rutas/curso_percusion')); //inforación de cursos
 
 app.use('/', require('./rutas/agregar_cursos')); //Agregado de cursos
+
+
 app.use('/', require('./rutas/inscripcion')); // enrolar en curso
 app.use('/', require('./rutas/proveedores')); //agregar proveedor
 app.use('/', require('./rutas/eresUsuario')); //registro

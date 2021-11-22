@@ -10,8 +10,9 @@ pool.getConnection((err, conexion) => {
     } else if (conexion) {
 
         conexion.release();
-        //pool.query('CREATE DATABASE IF NOT EXISTS pmusica; ');
-        pool.query('USE baluxvwixylw17lpuboq;');
+        pool.query('CREATE DATABASE IF NOT EXISTS pmusica; ');
+        pool.query('USE pmusica; ');
+        //pool.query('USE bmcp3eyipbie8hmrjnjm;');
 
         pool.query(
             'CREATE TABLE IF NOT EXISTS proveedores( ' +
@@ -30,13 +31,21 @@ pool.getConnection((err, conexion) => {
         pool.query(
             'CREATE TABLE IF NOT EXISTS cursos( ' +
             'curso_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, ' +
-            'proveedor_id INT(11) NOT NULL, ' + +
+            'proveedor_id INT(11) NOT NULL, ' +
             'nombre VARCHAR(200) NOT NULL, ' +
             'clave VARCHAR(50),' +
             'descripcion VARCHAR(450) NOT NULL,' +
-            'nombre_imagen VARCHAR(430) NOT NULL, ' +
             'tipo_musica CHAR(1) NOT NULL, ' +
             'FOREIGN KEY(proveedor_id) REFERENCES proveedores(proveedor_id)' +
+            ');'
+        );
+
+        pool.query(
+            'CREATE TABLE IF NOT EXISTS imagenes_cursos( ' +
+            'imagenes_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, ' +
+            'curso_id INT(11) NOT NULL, ' +
+            'nombre_imagen INT(11) NOT NULL, ' +
+            'FOREIGN KEY(curso_id) REFERENCES cursos(curso_id)' +
             ');'
         );
 

@@ -1,9 +1,14 @@
 module.exports = {
     database: {
-        host: 'baluxvwixylw17lpuboq-mysql.services.clever-cloud.com',
-        user: 'utebitq7dpwozqys',
-        password: 'KyRMQykfx5t5S8ExqS0Y',
-        database: 'baluxvwixylw17lpuboq',
+        // host: 'bmcp3eyipbie8hmrjnjm-mysql.services.clever-cloud.com',
+        // user: 'uzycntetrvqzthcg',
+        // password: '47gHsxcrxP8EIlem3STC',
+        // database: 'bmcp3eyipbie8hmrjnjm',
+        // insecureAuth: true
+        host: 'localhost',
+        user: 'root',
+        password: '12345',
+        database: 'pmusica',
         insecureAuth: true
     }
 }
