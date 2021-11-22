@@ -15,28 +15,28 @@
 
 <body>
     <div class="col-md-6 mx-auto">
-        <form method="POST">
-            
+        <form method="POST" onsubmit="return valida()">
+
             <lable class="titulo">Nuevo proveedor</lable>
-            
+
             <hr>
             <div class="form-group row">
-                <label  class="col-sm-2 col-form-label">Nombre</label>
+                <label class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" id="name" required>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label  class="col-sm-2 col-form-label">Clave</label>
+                <label class="col-sm-2 col-form-label">Clave</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="clave" placeholder="Clave" >
+                    <input type="text" class="form-control" name="clave" placeholder="Clave">
                 </div>
             </div>
 
 
             <div class="form-group row">
-                <label  class="col-sm-2 col-form-label">Email</label>
+                <label class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" name="correo" placeholder="Email" required>
                 </div>
@@ -44,44 +44,103 @@
 
 
             <div class="form-group row">
-                <label  class="col-sm-2 col-form-label">Telefono 1</label>
+                <label class="col-sm-2 col-form-label">Telefono 1</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="telefono1" placeholder="Telefono fijo" required>
+                    <input type="number" class="form-control" name="telefono1" placeholder="Telefono fijo" id="tel1" required>
                 </div>
             </div>
 
 
             <div class="form-group row">
-                <label  class="col-sm-2 col-form-label">Telefono 2</label>
+                <label class="col-sm-2 col-form-label">Telefono 2</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="telefono2" placeholder="celular" required>
+                    <input type="number" class="form-control" name="telefono2" placeholder="celular" id="tel2" required>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label  class="col-sm-2 col-form-label">Usuario</label>
+                <label class="col-sm-2 col-form-label">Usuario</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="usuario" placeholder="Usuario" required>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label  class="col-sm-2 col-form-label">Contraseña</label>
+                <label class="col-sm-2 col-form-label">Contraseña</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                    <input type="password" class="form-control" name="password" placeholder="Contraseña" id="pass" required>
                 </div>
             </div>
 
 
-            
+
             <br>
-            
+
             <div class="form-group row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Incribir</button>
                 </div>
             </div>
         </form>
+
+        <script>
+            //validacion de campos del formulario
+            const valida = () => {
+                const name = document.getElementById('name').value;
+                const tel1 = document.getElementById('tel1').value;
+                const tel2 = document.getElementById('tel2').value;
+                const pass = document.getElementById('pass').value;
+
+                // valida longitud de nombre
+                if (name.length < 10) {
+                    alert('Longitud del nombre es incorrecto, 10 caracteres como minimo');
+                    console.log(pass);
+                    return false
+                }
+
+                if (tel1.length < 10 || tel1.length > 11) {
+                    alert('Longitud del Telefono 1 es incorrecto');
+                    return false
+                }
+
+                if (tel2.length < 10 || tel2.length > 11) {
+                    alert('Longitud del Telefono 2 es incorrecto');
+                    return false
+                }
+
+                let arreglo_tipo_elementos = [];
+                for (let i = 0; i < pass.length; i++) {
+                    mayusculas = tipoCaracter(pass[i]);
+                    arreglo_tipo_elementos.push(mayusculas);
+
+                }
+
+                console.log(arreglo_tipo_elementos);
+
+                if (!(arreglo_tipo_elementos.indexOf('M') >= 0) && !(arreglo_tipo_elementos.indexOf('I') >= 0) &&
+                    !(arreglo_tipo_elementos.indexOf('N') >= 0)) {
+                    alert('La contraseña porporcionada no cuenta con mayusculas, minusculas y numeros');
+                    return false;
+                }
+
+                return true;
+
+            }
+            const tipoCaracter = (element) => {
+                console.log(element);
+                if (!isNaN(element)) {
+                    return 'N'
+                }
+
+                if (element === element.toUpperCase()) {
+                    return 'M'
+                }
+                if (element === element.toLowerCase()) {
+                    return 'I'
+                }
+
+            }
+        </script>
     </div>
 
 </body>

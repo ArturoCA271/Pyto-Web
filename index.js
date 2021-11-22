@@ -5,6 +5,7 @@ var cors = require('cors');
 const { join } = require('path');
 const path = require('path');
 const session = require('express-session');
+cookieParser = require('cookie-parser');
 
 const port = 3000;
 app = express();
@@ -12,6 +13,15 @@ app = express();
 app.use(cors());
 //donde cargar los archivaldos
 app.use(express.static('public'));
+
+
+// configuracion de sesion y cookies
+app.use(cookieParser());
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
 
 
 app.engine('html', require('ejs').renderFile);
@@ -38,6 +48,7 @@ app.use((req, res, next) => {
 //rutas 
 app.use('/', require('./rutas/inicio')); // index de la pagina
 app.use('/', require('./rutas/cursostipo')); //listado de cursos
+//app.use('/', require('./rutas/panel')); //listado de cursos
 
 app.use('/', require('./rutas/curso_cuerda')); //inforación de cursos
 app.use('/', require('./rutas/curso_viento')); //inforación de cursos

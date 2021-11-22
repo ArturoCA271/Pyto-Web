@@ -28,13 +28,13 @@ router.post('/proveedores', async(req, res) => {
         usuario: usuario,
         password: password,
         estatus: 'I',
-
-
     }
     await pool.query('INSERT INTO proveedores set ?', [newProveedor]);
     console.log(req.body);
-    res.send(newProveedor);
+
+
     res.redirect('/eresUsuario');
+    //res.redirect('/agregar_cursos');
 
 });
 
