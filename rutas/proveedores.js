@@ -29,15 +29,28 @@ router.post('/proveedores', async(req, res) => {
         telefono1: telefono1,
         telefono2: telefono2,
         usuario: usuario,
-        password: password,
+        passw: password,
         estatus: 'I',
     }
-    await pool.query('INSERT INTO proveedores set ?', [newProveedor]);
-    console.log(req.body);
-    crea_ruta(usuario);
 
-    res.redirect('/eresUsuario');
-    //res.redirect('/agregar_cursos');
+    const query = `CALL validaUsuario_Proveedores('${usuario}', @existe)`;
+    await pool.query(query);
+    let param = await pool.query('SELECT @existe;');
+    let existe;
+    param.forEach(element => {
+        existe = element['@existe'];
+    });
+    if (existe === null || existe === undefined) {
+        console.log('wwwww', existe);
+        await pool.query('INSERT INTO proveedores set ?', [newProveedor]);
+        console.log(req.body);
+        crea_ruta(usuario);
+
+        res.redirect('/eresUsuario');
+    } else {
+        console.log(existe);
+        res.status(500).send({ 'Error': 'El usuario proporcionado ya existe, proporciona otro usuario' });
+    }
 
 });
 

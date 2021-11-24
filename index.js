@@ -14,6 +14,7 @@ app = express();
 
 app.use(cors());
 //donde cargar los archivaldos
+app.use(express.static('uploads'));
 app.use(express.static('public'));
 
 
@@ -60,9 +61,9 @@ app.use('/', require('./rutas/agregar_cursos')); //Agregado de cursos
 
 app.use('/', require('./rutas/inscripcion')); // enrolar en curso
 app.use('/', require('./rutas/proveedores')); //agregar proveedor
-app.use('/', require('./rutas/eresUsuario')); //registro
 app.use('/', require('./rutas/login')); //login
 app.use('/', require('./rutas/graficado')); //Graficado de cursos por proveedor
+app.use('/', require('./rutas/cerrar_sesion')); //Cerrar sesion
 
 
 

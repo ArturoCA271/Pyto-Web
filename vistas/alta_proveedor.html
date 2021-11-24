@@ -14,6 +14,17 @@
 </head>
 
 <body>
+    <!--Navigation bar-->
+    <div id="nav-placeholder">
+    </div>
+
+    <script src="/js/jquery.min.js"></script>
+    <script>
+        $.get("nav-registro.html", function(data) {
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
+    <!--Navigation bar-->
     <div class="col-md-6 mx-auto">
         <form method="POST" onsubmit="return valida()">
 
@@ -71,8 +82,6 @@
                     <input type="password" class="form-control" name="password" placeholder="Contraseña" id="pass" required>
                 </div>
             </div>
-
-
 
             <br>
 
