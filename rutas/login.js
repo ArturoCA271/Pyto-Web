@@ -4,7 +4,7 @@ const pool = require('../conexion');
 
 
 router.get('/login', (req, res) => {
-    if (req.session.user !== undefined) {
+    if (req.session.id_proveedor !== undefined) {
         let usuario = req.session.user;
         res.redirect('/agregar_cursos/' + usuario);
     } else
@@ -17,22 +17,25 @@ router.post('/login', async(req, res) => {
     const { usuario, password } = req.body;
     req.session.user = usuario;
     req.session.pass = password;
-    let id_proveedor = await consulta_id_proveedor(usuario, password);
-
-    console.log('*******', id_proveedor);
-
-
-    if (id_proveedor !== undefined && !isNaN(id_proveedor)) {
-        req.session.id_proveedor = id_proveedor;
-        res.redirect('/agregar_cursos/' + usuario);
+    if (usuario === 'admin' && password === 'admin') {
+        res.redirect('/proveedores_inscritos');
     } else {
-        res.redirect('/login');
+        let id_proveedor = await consulta_id_proveedor(usuario, password);
+        console.log('*******', id_proveedor);
+
+
+        if (id_proveedor !== undefined && !isNaN(id_proveedor)) {
+            req.session.id_proveedor = id_proveedor;
+            res.redirect('/agregar_cursos/' + usuario);
+        } else {
+            res.redirect('/login');
+        }
     }
+
 
 });
 
 const consulta_id_proveedor = async(user, passw) => {
-    //const datos_proveedor = await pool.query('SELECT * FROM proveedores P WHERE P.usuario = ' + user + ' AND P.password = ' + passw);
     let consulta = 'SELECT * FROM proveedores P WHERE P.usuario = ' + "'" + user + "'" + ' AND P.passw =' + "'" + passw + "'";
     console.log('------', passw);
     const datos_proveedor = await pool.query(consulta);
@@ -42,6 +45,6 @@ const consulta_id_proveedor = async(user, passw) => {
         return undefined;
     }
 
-};
+}
 
 module.exports = router;

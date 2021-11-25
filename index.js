@@ -7,8 +7,6 @@ const path = require('path');
 const session = require('express-session');
 cookieParser = require('cookie-parser');
 
-
-
 const port = 3000;
 app = express();
 
@@ -28,6 +26,7 @@ app.use(session({
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+
 
 //definición de vistas
 app.set('views', path.join(__dirname, '/vistas'));
@@ -64,6 +63,7 @@ app.use('/', require('./rutas/proveedores')); //agregar proveedor
 app.use('/', require('./rutas/login')); //login
 app.use('/', require('./rutas/graficado')); //Graficado de cursos por proveedor
 app.use('/', require('./rutas/cerrar_sesion')); //Cerrar sesion
+app.use('/', require('./rutas/visualiza_proveedores')); //Visualiza proveedores
 
 
 

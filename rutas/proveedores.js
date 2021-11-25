@@ -46,7 +46,7 @@ router.post('/proveedores', async(req, res) => {
         console.log(req.body);
         crea_ruta(usuario);
 
-        res.redirect('/eresUsuario');
+        res.redirect('/login');
     } else {
         console.log(existe);
         res.status(500).send({ 'Error': 'El usuario proporcionado ya existe, proporciona otro usuario' });

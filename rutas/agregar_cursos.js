@@ -154,9 +154,6 @@ router.post('/imagenes_cursos/:user/:curso', upload.array('imagen_uploaded'), as
 
 });
 
-const valida_tipo_archivo = () => {
-
-}
 
 
 module.exports = router;
