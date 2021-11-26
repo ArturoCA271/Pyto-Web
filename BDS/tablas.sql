@@ -79,7 +79,6 @@ BEGIN
 
 END$$
 
-
 DELIMITER $$ 
 CREATE PROCEDURE obtener_curso(IN v_nombre VARCHAR(200),  IN v_proveedor_id INT(11),OUT R_curso_id INT(11))
 BEGIN 
