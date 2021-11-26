@@ -1,0 +1,61 @@
+.titulo {
+    text-align: center;
+    font-weight: bold;
+}
+
+.canvas {
+    height: 1000px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.invisible {
+    display: none;
+    visibility: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.bg-personal img {
+    width: 5%;
+    height: 5%;
+    /*Tu IMAGEN*/
+}
+
+.principal {
+    /* OKAY */
+    width: 5cm;
+    height: 5cm;
+    background-size: 25px 50px;
+    background-size: 50% 50%;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+    thead {
+        display: none;
+    }
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+    tbody td {
+        display: block;
+        text-align: center;
+    }
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align: center;
+    }
+}
