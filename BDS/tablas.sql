@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS cursos(
              imagenes_id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,  
              curso_id INT(11) NOT NULL,  
              nombre_imagen VARCHAR(250) NOT NULL,  
-             FOREIGN KEY(curso_id) REFERENCES cursos(curso_id) 
+             FOREIGN KEY(curso_id) REFERENCES cursos(curso_id) ON DELETE CASCADE 
              );
 
 CREATE TABLE IF NOT EXISTS inscritos(  

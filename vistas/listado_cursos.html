@@ -52,10 +52,10 @@
     <h1>Listado de proveedores</h1>
     <br>
     <div class="col-md-10 mx-auto">
-        <form method="POST">
-            <div id="div_table" class="container table-responsive"></div>
 
-        </form>
+        <div id="div_table" class="container table-responsive"></div>
+
+
 
     </div>
 
@@ -89,7 +89,7 @@
                         let boton = document.createElement("button");
                         boton.setAttribute("class", "btn btn-warning");
                         boton.setAttribute("type", "button");
-                        let textobutt = document.createTextNode("Modificar");
+                        let textobutt = document.createTextNode("No");
                         boton.appendChild(textobutt);
                         celda.appendChild(boton);
                         hilera.appendChild(celda);
@@ -98,12 +98,22 @@
 
                     if (propierty === 'Borrar') {
                         let celda = document.createElement("td");
+
+                        let enlace = document.createElement("a");
+                        let liga_enlace = "http://localhost:3000/borrar_curso/" + element['curso_id'];
+                        enlace.setAttribute("href", liga_enlace);
+
+
                         let boton = document.createElement("button");
                         boton.setAttribute("class", "btn btn-danger");
-                        boton.setAttribute("type", "button");
+                        boton.setAttribute("type", "submit");
+
+
+
                         let textobutt = document.createTextNode("Borrar");
                         boton.appendChild(textobutt);
-                        celda.appendChild(boton);
+                        enlace.appendChild(boton);
+                        celda.appendChild(enlace);
                         hilera.appendChild(celda);
                     } else {
                         let celda = document.createElement("td");
